@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SoulSync offers Vastu, Feng Shui, Astrology, and traditional Indian consultations for relationships, career, and spiritual growth.">
+    <meta name="keywords" content="Vastu Shastra, Feng Shui, Astrology, Kundli, Palmistry, Tantra, Mantra, spiritual consultation, India">
+    <title>SoulSync - Traditional Guidance & Consultation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" opacity="0.05"%3E%3Cpath d="M0 0h80v80H0z" fill="none"/%3E%3Cpath d="M40 10 L70 30 L70 50 L40 70 L10 50 L10 30 Z" stroke="%23D4A017" stroke-width="1" fill="none"/%3E%3C/svg%3E');
+            background-size: 100px 100px;
+            z-index: -1;
+        }
+        header {
+            background: linear-gradient(135deg, #008080 0%, #D4A017 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+        nav {
+            background: #FFFFFF;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #333333;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #D4A017;
+        }
+        section {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #008080;
+        }
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #D4A017;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h3 {
+            font-size: 1.8em;
+            margin: 1.5rem 0 1rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #F8F8F8;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 0.5rem;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 1rem;
+        }
+        .cta-button {
+            display: block;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .cta-button button {
+            background: #D4A017;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button button:hover {
+            background: #008080;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #008080;
+            color: white;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1em; }
+            nav a { margin: 0 0.5rem; font-size: 1em; }
+            section { margin: 1rem; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SoulSync</h1>
+        <p>Timeless Wisdom for Modern Lives</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="submit.html">Submit Your Problem</a>
+    </nav>
+
+    <section id="home">
+        <h2><span class="emoji">🌸</span> Welcome to Your Space of Faith & Guidance <span class="emoji">🌸</span></h2>
+        <p>Life has its seasons — moments of joy, moments of challenge. Sometimes the weight of relationships, health, career, or personal struggles makes it hard to see the way forward.</p>
+        <p>If you are here, it means your heart is looking for clarity… and we are here to walk with you in that search.</p>
+        <p>At SoulSync, we draw upon India’s timeless traditional sciences — including Vastu Shastra, Feng Shui, Astrology (Kundli), Palmistry, Tantra-Mantra, and other spiritual practices that have been shared through generations.</p>
+        <p>These are faith-based and spiritual in nature — not a substitute for medical treatment, legal advice, or psychological therapy.</p>
+        <h3><span class="emoji">✨</span> Continue Any Existing Support</h3>
+        <p>If you are under medical care, legal consultation, or psychological guidance, please continue it alongside our services.</p>
+        <p>Our role is to complement your journey — offering spiritual direction and traditional remedies to uplift your energy and environment.</p>
+        <h3><span class="emoji">💗</span> Why People Trust Us</h3>
+        <ul>
+            <li>A Listening Heart — Every story is treated with respect, understanding, and care.</li>
+            <li>Complete Confidentiality — Your privacy is sacred.</li>
+            <li>Balanced Guidance — Practical steps blended with spiritual wisdom.</li>
+            <li>Approachable & Compassionate — Whether your challenge is personal, family-related, or career-based.</li>
+            <li>No False Claims — We guide in faith, never in empty promises.</li>
+        </ul>
+        <h3><span class="emoji">🌿</span> How We Can Help You</h3>
+        <ul>
+            <li>Restoring peace and harmony in your home and relationships</li>
+            <li>Attracting love, prosperity, and opportunities</li>
+            <li>Clearing negativity and balancing spiritual energy</li>
+            <li>Finding clarity in difficult decisions</li>
+            <li>Creating a positive environment for personal growth</li>
+        </ul>
+        <h3><span class="emoji">⚖</span> Disclaimer</h3>
+        <p>Our services are based on traditional, cultural, and spiritual wisdom, meant for personal growth, inspiration, and faith.</p>
+        <p>Results may vary, and we make no guarantees of specific outcomes.</p>
+        <p>We do not replace qualified medical, psychological, legal, or financial professionals.</p>
+        <p>Here, your story matters. Your trust matters.</p>
+        <p>Together, let us bring back the balance and positivity you seek. <span class="emoji">🌺</span></p>
+        <div class="cta-button">
+            <a href="submit.html"><button>Book Your Consultation Now</button></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SoulSync. All rights reserved. | <a href="mailto:contact@soulsync.com" style="color: #D4A017;">contact@soulsync.com</a></p>
+    </footer>
+</body>
+</html>
