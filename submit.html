@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulSync - Submit Your Problem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFE082 100%);
+            color: #4A2F2F;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 10%, transparent 20%);
+            background-size: 100px 100px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        header {
+            background: #8B1E3F;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        nav {
+            background: #FFC107;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #4A2F2F;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #8B1E3F;
+            text-decoration: underline;
+        }
+        section {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            font-family: 'Lora', serif;
+            color: #8B1E3F;
+            font-size: 2.2em;
+            text-align: center;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #FFC107;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        form {
+            display: grid;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            font-family: 'Lora', serif;
+            font-size: 1.1em;
+            color: #8B1E3F;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #FFC107;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #8B1E3F;
+            box-shadow: 0 0 5px rgba(139, 30, 63, 0.3);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        button {
+            background: #8B1E3F;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-family: 'Lora', serif;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background: #FFC107;
+            color: #4A2F2F;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #8B1E3F;
+            color: white;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            nav a { margin: 0 0.5rem; font-size: 1em; }
+            section { margin: 1rem; padding: 1.5rem; }
+            form { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SoulSync</h1>
+        <p>Timeless Wisdom for Modern Lives</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="submit.html">Submit Your Problem</a>
+    </nav>
+
+    <section id="submit">
+        <h2>Submit Your Problem</h2>
+        <p>Fill out the form below to share your concerns. We will review and contact you for a paid consultation session. Your submission will be logged in our system, and we’ll ensure confidentiality.</p>
+        <form action="YOUR_SCRIPT_URL" method="POST" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="tob">Time of Birth:</label>
+            <input type="time" id="tob" name="tob">
+
+            <label for="pob">Place of Birth:</label>
+            <input type="text" id="pob" name="pob">
+
+            <label for="category">Category of Problem:</label>
+            <select id="category" name="category" required>
+                <option value="">Select...</option>
+                <option value="Marriage issues">Marriage issues</option>
+                <option value="Parenting">Parenting</option>
+                <option value="Disputes with relatives">Disputes with relatives</option>
+                <option value="Joint family harmony">Joint family harmony</option>
+                <option value="Finding love">Finding love</option>
+                <option value="Relationship compatibility">Relationship compatibility</option>
+                <option value="Breakup issues">Breakup issues</option>
+                <option value="Rekindling love">Rekindling love</option>
+                <option value="Job growth">Job growth</option>
+                <option value="Promotions">Promotions</option>
+                <option value="Business prosperity">Business prosperity</option>
+                <option value="Partnerships">Partnerships</option>
+                <option value="Court cases">Court cases</option>
+                <option value="Land disputes">Land disputes</option>
+                <option value="Property buying/selling">Property buying/selling</option>
+                <option value="Vastu for new property">Vastu for new property</option>
+                <option value="Debt problems">Debt problems</option>
+                <option value="Income growth">Income growth</option>
+                <option value="Investments">Investments</option>
+                <option value="Chronic illness support">Chronic illness support</option>
+                <option value="Energy imbalance">Energy imbalance</option>
+                <option value="Home remedies (traditional systems only)">Home remedies (traditional systems only)</option>
+                <option value="Anxiety">Anxiety</option>
+                <option value="Stress relief">Stress relief</option>
+                <option value="Confidence building">Confidence building</option>
+                <option value="Peace of mind">Peace of mind</option>
+                <option value="Meditation guidance">Meditation guidance</option>
+                <option value="Kundli dosha remedies">Kundli dosha remedies</option>
+                <option value="Mantra sadhana">Mantra sadhana</option>
+                <option value="For anything that doesn’t fit the above">For anything that doesn’t fit the above</option>
+            </select>
+
+            <label for="description">Detailed Description of Problem:</label>
+            <textarea id="description" name="description" rows="10" required placeholder="Write in Hindi, English, or any major regional Indian language."></textarea>
+
+            <label for="files">File Upload (optional: photos of home, palm, kundli):</label>
+            <input type="file" id="files" name="files" multiple>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SoulSync. All rights reserved.</p>
+    </footer>
+</body>
+</html>
