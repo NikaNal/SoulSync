@@ -260,5 +260,25 @@
     <footer>
         <p>&copy; 2025 SoulSync. All rights reserved. | <a href="mailto:contact@soulsync.com">contact@soulsync.com</a></p>
     </footer>
+    document.querySelector('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+      if (result.status === 'success') {
+        alert('Thank you for your submission! We will contact you soon.');
+        form.reset();
+      } else {
+        alert('Error: ' + result.message);
+      }
+    } catch (error) {
+      alert('Submission failed: ' + error.message);
+    }
+  });
 </body>
 </html>
