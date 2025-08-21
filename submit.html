@@ -7,9 +7,6 @@
     <meta name="keywords" content="Vastu Shastra, Feng Shui, Astrology, Kundli, Palmistry, Tantra, Mantra, spiritual consultation, India">
     <title>SoulSync - Submit Your Problem</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -153,19 +150,6 @@
             background: #008080;
             transform: scale(1.05);
         }
-        .phone-group {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-end;
-        }
-        .otp-group {
-            display: none;
-            gap: 1rem;
-            align-items: flex-end;
-        }
-        #recaptcha-container {
-            margin: 1rem 0;
-        }
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -186,7 +170,6 @@
             nav a { margin: 0 0.5rem; font-size: 1em; }
             section { margin: 1rem; padding: 1.5rem; }
             form { max-width: 100%; }
-            .phone-group, .otp-group { flex-direction: column; align-items: stretch; }
         }
     </style>
 </head>
@@ -205,32 +188,17 @@
 
     <section id="submit">
         <h2>Sacred Consultation Request</h2>
-        <p>Share your concerns confidentially with our spiritual guides.</p>
+        <p>Share your concerns confidentially with our spiritual guides. You will receive a confirmation email with your case number.</p>
         <h3>Tell Us About Your Situation</h3>
-        <form id="consultation-form" action="https://script.google.com/macros/s/AKfycbzzQBVVTO_z-iuZOO53XdKTQOuzY9TJzyzEY3AZCaQ-o0ICbOYP8bPka5tFP51MmeSWSg/exec" method="POST">
+        <form id="consultation-form" action="https://script.google.com/macros/s/AKfycby9Y_7pwHiRnDxjKGjHw6W8OIUZPehBQFWh5zKLA6Bl84424msZUTjyLrvSeuq-vcmeyw/exec" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
-            <div class="phone-group">
-                <div style="flex-grow: 1;">
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
-                </div>
-                <button type="button" id="send-otp">Send OTP</button>
-            </div>
-
-            <div id="recaptcha-container"></div>
-
-            <div class="otp-group" id="otp-group">
-                <div style="flex-grow: 1;">
-                    <label for="otp">Enter OTP:</label>
-                    <input type="text" id="otp" name="otp" placeholder="Enter 6-digit OTP">
-                </div>
-                <button type="button" id="verify-otp">Verify OTP</button>
-            </div>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
 
             <label for="dob">Date of Birth:</label>
             <input type="date" id="dob" name="dob" required>
@@ -285,7 +253,7 @@
             <label for="files">File Upload (optional: photos of home, palm, kundli):</label>
             <input type="file" id="files" multiple>
 
-            <button type="submit" id="submit-button" disabled>Submit Request</button>
+            <button type="submit" id="submit-button">Submit Request</button>
         </form>
     </section>
 
@@ -293,65 +261,6 @@
         <p>&copy; 2025 SoulSync. All rights reserved. | <a href="mailto:contact@soulsync.com">contact@soulsync.com</a></p>
     </footer>
     <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyDL1FgE8k-6SBfLlc_Uyt0np5i3T5Shnp4",
-            authDomain: "soulsync-905a6.firebaseapp.com",
-            projectId: "soulsync-905a6",
-            storageBucket: "soulsync-905a6.firebasestorage.app",
-            messagingSenderId: "67915862088",
-            appId: "1:67915862088:web:7b0cf6505f10c95a1b487d",
-        };
-        firebase.initializeApp(firebaseConfig);
-
-        // Set up reCAPTCHA
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-            'size': 'normal',
-            'callback': () => {
-                document.getElementById('send-otp').disabled = false;
-            },
-            'expired-callback': () => {
-                alert('reCAPTCHA expired. Please try again.');
-            }
-        });
-        recaptchaVerifier.render();
-
-        // Send OTP
-        document.getElementById('send-otp').addEventListener('click', async () => {
-            const phoneInput = document.getElementById('phone');
-            const phone = phoneInput.value;
-            if (!phone.match(/^[0-9]{10}$/)) {
-                alert('Please enter a valid 10-digit mobile number.');
-                return;
-            }
-            const phoneNumber = '+91' + phone; // Assuming Indian numbers
-            try {
-                document.getElementById('send-otp').disabled = true;
-                const confirmationResult = await firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier);
-                window.confirmationResult = confirmationResult;
-                alert('OTP sent to your mobile number.');
-                document.getElementById('otp-group').style.display = 'flex';
-                phoneInput.disabled = true;
-            } catch (error) {
-                alert('Error sending OTP: ' + error.message);
-                document.getElementById('send-otp').disabled = false;
-            }
-        });
-
-        // Verify OTP
-        document.getElementById('verify-otp').addEventListener('click', async () => {
-            const otpInput = document.getElementById('otp').value;
-            try {
-                await window.confirmationResult.confirm(otpInput);
-                alert('Phone number verified successfully!');
-                document.getElementById('otp-group').style.display = 'none';
-                document.getElementById('submit-button').disabled = false;
-                document.getElementById('phone').disabled = false;
-            } catch (error) {
-                alert('Invalid OTP: ' + error.message);
-            }
-        });
-
         // Form submission
         document.getElementById('consultation-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -384,20 +293,30 @@
                 formData.append('filesJson', JSON.stringify(filesArray));
             }
             try {
+                console.log("Submitting form to:", form.action);
                 const response = await fetch(form.action, {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    mode: 'no-cors'
                 });
-                const result = await response.json();
+                const resultText = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(resultText);
+                } catch (e) {
+                    console.error("Failed to parse response:", resultText);
+                    throw new Error("Invalid server response");
+                }
                 if (result.status === 'success') {
-                    alert(`Thank you for your submission! Your case number is ${result.caseNo}`);
+                    alert(`Thank you for your submission! Your case number is ${result.caseNo}. A confirmation email has been sent to ${form.email.value}.`);
+                    console.log("Form submitted successfully, caseNo:", result.caseNo);
                     form.reset();
-                    document.getElementById('send-otp').disabled = false;
-                    document.getElementById('submit-button').disabled = true;
                 } else {
+                    console.error("Submission error:", result.message);
                     alert('Error: ' + result.message);
                 }
             } catch (error) {
+                console.error("Submission failed:", error);
                 alert('Submission failed: ' + error.message);
             }
         });
